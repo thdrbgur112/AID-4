@@ -4,6 +4,9 @@
 
 숭실대 자율주행프로그래밍 2026 F1TENTH 대회를 위한 강화학습(RL) 팀 프로젝트 기록. 학습 코드(`f1tenth_rl`)는 집 데스크톱에서 개발 중이고, 이 레포는 진행 과정·설정·결과·교훈을 정리한 문서 레포입니다.
 
+## 배경: 2026 대회
+첫 대회는 Pure Pursuit → TinyLidarNet으로 출전해 **32강에서 최종 2위 저장대(ZJU)에 패해 탈락**했습니다. TLN의 최고속도 한계와 차량·오프로드 타이어의 하드웨어 한계를 넘지 못했고, 대회 후 저장대의 CiMPCC·EVO-MPCC를 공부한 뒤 **Isaac Lab 자체 시뮬레이터 + RL**로 다음 대회를 준비하고 있습니다. 회고: [COMPETITION_2026.md](COMPETITION_2026.md)
+
 ## 한눈에 보기
 - **환경**: Isaac Lab `DirectRLEnv`, GPU 1장(RTX 5070 Ti)에서 8192 env 동시 실행. f1tenth_gym과 같은 single-track 동역학(RK4, dt 0.01s)을 torch로 벡터화
 - **정책**: LiDAR 108구간 최소값 + 속도/요레이트/직전 명령 → `[조향, 목표속도]`. 맵 정보를 넣지 않아 처음 보는 맵에서도 동작
